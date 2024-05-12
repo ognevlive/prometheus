@@ -23,6 +23,8 @@ import (
 	"github.com/prometheus/prometheus/model/labels"
 	"github.com/prometheus/prometheus/model/textparse"
 	"github.com/prometheus/prometheus/promql/parser"
+
+	fuzz "github.com/AdaLogics/go-fuzz-headers"
 )
 
 // PromQL parser fuzzing instrumentation for use with
@@ -122,4 +124,32 @@ func FuzzParseExpr(in []byte) int {
 	}
 
 	return fuzzMeh
+}
+
+// Fuzz the expression parser prettier.
+func FuzzParseExpr(in []byte) int {
+	if len(in) > maxInputSize {
+		return fuzzMeh
+	}
+
+	f := fuzz.NewConsumer(in)
+
+	str, err = := f.GetString()
+	if err != nil {
+		return fuzzMeh
+	}
+
+	expr, err := parser.ParseExpr(str)
+	if err != nil {
+		return fuzzMeh
+	}
+
+	i, err = f.GetInt()
+	if err != nil {
+		return fuzzMeh
+	}
+
+	expr.Pretty(i)
+
+	return fuzzInteresting
 }
