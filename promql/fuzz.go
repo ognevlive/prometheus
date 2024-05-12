@@ -20,9 +20,9 @@ import (
 	"errors"
 	"io"
 
-	"github.com/ognevlive/prometheus/model/labels"
-	"github.com/ognevlive/prometheus/model/textparse"
-	"github.com/ognevlive/prometheus/promql/parser"
+	"github.com/prometheus/prometheus/model/labels"
+	"github.com/prometheus/prometheus/model/textparse"
+	"github.com/prometheus/prometheus/promql/parser"
 
 	fuzz "github.com/AdaLogics/go-fuzz-headers"
 )
