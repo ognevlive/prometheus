@@ -20,9 +20,9 @@ import (
 	"errors"
 	"io"
 
-	"github.com/prometheus/prometheus/model/labels"
-	"github.com/prometheus/prometheus/model/textparse"
-	"github.com/prometheus/prometheus/promql/parser"
+	"github.com/ognevlive/prometheus/model/labels"
+	"github.com/ognevlive/prometheus/model/textparse"
+	"github.com/ognevlive/prometheus/promql/parser"
 
 	fuzz "github.com/AdaLogics/go-fuzz-headers"
 )
@@ -134,7 +134,7 @@ func FuzzParseExprPretty(in []byte) int {
 
 	f := fuzz.NewConsumer(in)
 
-	str, err = := f.GetString()
+	str, err := f.GetString()
 	if err != nil {
 		return fuzzMeh
 	}
@@ -144,7 +144,7 @@ func FuzzParseExprPretty(in []byte) int {
 		return fuzzMeh
 	}
 
-	i, err = f.GetInt()
+	i, err := f.GetInt()
 	if err != nil {
 		return fuzzMeh
 	}
