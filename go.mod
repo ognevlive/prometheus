@@ -1,4 +1,4 @@
-module github.com/prometheus/prometheus
+module github.com/ognevlive/prometheus
 
 go 1.21
 
@@ -113,6 +113,7 @@ require (
 	github.com/distribution/reference v0.5.0 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
+	github.com/dvyukov/go-fuzz v0.0.0-20240203152606-b1ce7bc07150 // indirect
 	github.com/emicklei/go-restful/v3 v3.11.0 // indirect
 	github.com/evanphx/json-patch v5.6.0+incompatible // indirect
 	github.com/fatih/color v1.15.0 // indirect
