@@ -127,7 +127,7 @@ func FuzzParseExpr(in []byte) int {
 }
 
 // Fuzz the expression parser prettier.
-func FuzzParseExpr(in []byte) int {
+func FuzzParseExprPretty(in []byte) int {
 	if len(in) > maxInputSize {
 		return fuzzMeh
 	}
